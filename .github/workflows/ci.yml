@@ -17,7 +17,7 @@ jobs:
     outputs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step2.outputs.tagname }}
-      output3: ${{ steps.contents.outputs.data }}
+      output3: ${{ steps.step3.outputs.data }}
 
     steps:
       - uses: actions/checkout@v2
@@ -49,6 +49,7 @@ jobs:
           python-version: '3.8'
       
       - name: Run Python Script
+        id: step3
         run: |
           python create_file.py
           contents=$(cat read_me.txt)
@@ -67,4 +68,4 @@ jobs:
         run: echo Hello from another job
       
       - name: Print Output from previous job
-        run:  echo ${{ needs.build.outputs.output1 }} ${{ needs.build.outputs.output2 }} ${{ needs.build.outputs.output3 }}
+        run:  echo "${{ needs.build.outputs.output1 }} ${{ needs.build.outputs.output2 }} ${{ needs.build.outputs.output3 }}""

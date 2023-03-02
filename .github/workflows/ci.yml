@@ -1,0 +1,25 @@
+name : CI
+
+on:
+  push:
+    branches: [ new_branch ]
+    
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run a one-line script
+        run: echo Hello, World!
+      
+      - name: Run multi line script
+        run:
+          echo Add onther actions to build,
+          echo test, and deploy your project.
+
+      - name: Run another script
+        run: echo This is a new command!

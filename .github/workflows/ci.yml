@@ -17,6 +17,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
+      - name: Display GH Default env vars
+        run: |
+          echo "Github Actor: $GITHUB_ACTOR"
+          echo "Github Ref: $GITHUB_REF"
+
       - name: List all files
         run: ls
 

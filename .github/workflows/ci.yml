@@ -27,7 +27,7 @@ jobs:
 
       - id: step2
         run: |
-          tagvar = world
+          tagvar=world
           echo "::set-output name=tagname::$tagvar"
 
       - name: Display GH Default env vars

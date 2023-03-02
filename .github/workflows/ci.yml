@@ -13,13 +13,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Run a one-line script
-        run: echo Hello, World!
-      
-      - name: Run multi line script
-        run:
-          echo Add onther actions to build,
-          echo test, and deploy your project.
+      - name: List all files
+        run: ls
 
-      - name: Run another script
-        run: echo This is a new command!
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      
+      - name: Run Python Script
+        run: python create_file.py
+
+      - name: List all the new files
+        run: ls

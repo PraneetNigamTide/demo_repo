@@ -9,12 +9,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+    env:
+      platform: AWS
+      region: central
+      profile_path: profile/
+
     steps:
       - uses: actions/checkout@v2
       
       - name: List all files
         run: ls
+
+      - name: Display custom environment variables
+        run: |
+          echo "The platform is ${{ env.platform}}"
+          echo "The region is ${{ env.region }}"
 
       - name: Install Python
         uses: actions/setup-python@v2

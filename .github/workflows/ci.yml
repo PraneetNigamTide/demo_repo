@@ -40,3 +40,12 @@ jobs:
 
       - name: List all the new files
         run: ls
+
+  display:
+    runs-on: ubuntu-latest
+    needs: build
+    if: always()
+
+    steps:
+      - name: Print a value
+        run: echo Hello from another job

@@ -68,4 +68,4 @@ jobs:
         run: echo Hello from another job
       
       - name: Print Output from previous job
-        run:  echo "${{ needs.build.outputs.output1 }} ${{ needs.build.outputs.output2 }} ${{ needs.build.outputs.output3 }}""
+        run:  echo "${{ needs.build.outputs.output1 }} ${{ needs.build.outputs.output2 }} ${{ needs.build.outputs.output3 }}"
